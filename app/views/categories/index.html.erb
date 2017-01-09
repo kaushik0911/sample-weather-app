@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+<% end %>
+<br>
+<%= link_to "Weather", weather_index_path %>
+<br>
+<h3>Category list</h3>
+<%= link_to "create new category", new_category_path %>
+<br>
+<ol>
+  <% @categoires.each do |c| %>
+    <li>
+   	  <%= c.category_name %>
+    </li>
+
+    <% if can? :update, Weather %>
+      <%= link_to "Edit", edit_category_path(c.id) %>
+    <% end %>
+
+    <%= link_to "edit category", edit_category_path(c.id) %>
+    <%= link_to "remove category", category_path(c.id) , :method => :delete %>
+  <% end %>
+</ol>

@@ -1,0 +1,5 @@
+<h2>Update Weather</h2>
+<%= form_for @weather, url: { action: 'update'} do |f| %>
+  <%= render partial: 'form', locals: { f: f} %>
+<% end %>
+<%= link_to "Back", weather_index_path %>

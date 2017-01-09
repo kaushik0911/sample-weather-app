@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
+<% end %>
+<br>
+<%= link_to "Users", admin_root_path %>
+<br>
+<%= link_to "Categories", categories_path %>
+<br>
+<h3>Weather Data</h3>
+<%= link_to "create new weather", new_weather_path %>
+<br>
+<table>
+  <thead>
+    <th>city id</th>
+    <th>city name</th>
+    <th>description</th>
+    <th>fahrenheit</th>
+    <th>celsius</th>
+    <th>kelvin</th>
+  </thead>
+  <tbody>
+    <% @all_weather.each do |w| %>
+      <tr>
+        <td><%= w.city_id %></td>
+        <td><%= w.city_name %></td>
+        <td><%= w.description %></td>
+        <td><%= w.imperial %></td>
+        <td><%= w.metric %></td>
+        <td><%= w.kelvin %></td>
+        <% if can? :edit, Weather %>
+          <td><%= link_to 'update', edit_weather_path(w.id) %></td>
+        <% end %>        
+        <td><%= link_to 'delete', weather_path(w.id), method: :delete %></td>
+      </tr>      
+    <% end %>
+  </tbody>
+</table>

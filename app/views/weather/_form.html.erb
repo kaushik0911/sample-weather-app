@@ -1,0 +1,7 @@
+<%= f.label :city_id %><br>
+<%= f.text_field :city_id %><br>
+<%= f.label :city_name %><br>
+<%= f.text_field :city_name %><br>
+<%= f.label :category_name %> :
+<%= f.collection_check_boxes :category_ids, Category.all, :id, :category_name %><br>
+<%= f.submit "Submit" %>

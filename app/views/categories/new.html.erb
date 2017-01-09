@@ -1,0 +1,5 @@
+<h2>New Category Data</h2>
+<%= form_for @category, url: { action: 'create'} do |f| %>
+  <%= render partial: 'form', locals: { f: f} %>
+<% end %>
+<%= link_to "Back", categories_path %>
