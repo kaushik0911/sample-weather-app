@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_parms)
     if @category.save
+      flash[:notice] = (@category.category_name).concat(" category successfully created")
       redirect_to :action => 'index'
     else
       render :action => 'new'
@@ -28,8 +29,9 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @user = Category.find(params[:id])
-    if @user.destroy
+    @category = Category.find(params[:id])
+    if @category.destroy
+      flash[:notice] = (@category.category_name).concat(" category successfully deleted")
       redirect_to :action => 'index'
     end
   end
@@ -37,6 +39,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_parms)
+      flash[:notice] = (@category.category_name).concat(" category successfully updated")
       redirect_to :action => 'index'
     else
       render :action => 'edit'

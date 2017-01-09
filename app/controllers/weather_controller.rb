@@ -18,6 +18,7 @@ class WeatherController < ApplicationController
   def create
     @weather = WeatherDatum.new(weather_params)
     if @weather.save
+      flash[:notice] = (@weather.city_name).concat(" weather data successfully created")
       redirect_to :action => 'index'
     else
       render :action => 'new'
@@ -27,6 +28,7 @@ class WeatherController < ApplicationController
   def update
     @weather = WeatherDatum.find(params[:id])    
     if @weather.update_attributes(weather_params)
+      flash[:notice] = (@weather.city_name).concat(" weather data successfully updated")
       redirect_to :action => 'index'
     else
       render :action=> 'edit'
@@ -36,6 +38,7 @@ class WeatherController < ApplicationController
   def destroy
     @weather = WeatherDatum.find(params[:id])
     if @weather.destroy
+      flash[:notice] = (@weather.city_name).concat(" weather data successfully deleted")
       redirect_to :action => 'index'
     end
   end
