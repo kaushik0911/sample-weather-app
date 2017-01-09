@@ -36918,3 +36918,395 @@ Processing by WeatherController#index as HTML
 Completed 200 OK in 68ms (Views: 39.8ms | ActiveRecord: 6.7ms)
 
 
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-01-09 18:51:10 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ogDPJH6HBrQlUlmOEeWbELFofbCkqsKI9ESAXuVFkVRRbfqKm12glOjPP6M4d/6sYSOe5blpFFi/v6kZqCztog=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:51:11 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 1192ms (Views: 1191.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:51:13 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered users/sessions/new.html.erb within layouts/application (281.8ms)
+Completed 200 OK in 344ms (Views: 339.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:52:55 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rdK5iUurE3vIxyxp+pSHAIFTRwNSvvEW6coqEnJUhDUOYV9aKv2llHj9EOWgA2qa5/D6ZogRHBbB3EAW6jNFpw==", "user"=>{"email"=>"admin@mail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@mail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-01-09 13:22:55 UTC], ["last_sign_in_at", 2017-01-09 12:30:47 UTC], ["sign_in_count", 17], ["updated_at", 2017-01-09 13:22:55 UTC], ["id", 2]]
+  [1m[35m (27.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 268ms (ActiveRecord: 32.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:52:55 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-01-09 18:52:58 +0530
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 44ms (Views: 39.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:52:59 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (0.5ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 149ms (Views: 30.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-01-09 18:53:00 +0530
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 48ms (Views: 43.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:53:00 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (0.5ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 62ms (Views: 56.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2017-01-09 18:53:01 +0530
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 77ms (Views: 61.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:53:02 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (0.5ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 55ms (Views: 50.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/weather/new" for 127.0.0.1 at 2017-01-09 18:53:04 +0530
+Processing by WeatherController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered weather/_form.html.erb (119.6ms)
+  Rendered weather/new.html.erb within layouts/application (122.8ms)
+Completed 200 OK in 152ms (Views: 148.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:53:05 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (0.5ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 46ms (Views: 42.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/weather/7/edit" for 127.0.0.1 at 2017-01-09 18:53:06 +0530
+Processing by WeatherController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mWeatherDatum Load (0.3ms)[0m  [1m[34mSELECT  "weather_data".* FROM "weather_data" WHERE "weather_data"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering weather/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "categories".id FROM "categories" INNER JOIN "weather_categories" ON "categories"."id" = "weather_categories"."category_id" WHERE "weather_categories"."weather_datum_id" = $1[0m  [["weather_datum_id", 7]]
+  Rendered weather/_form.html.erb (20.2ms)
+  Rendered weather/edit.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 97ms (Views: 51.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:53:07 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (0.5ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 45ms (Views: 36.9ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-01-09 18:53:08 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rQ/JgPgfVN9ptKKFaXQTEaugPr4zpkDxaKcu2/7R7EeuQrGEm3SfqT1oN8xj7FDssyNmhCadlwSJUnBUfM0JLA=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:53:08 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:53:10 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered users/sessions/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:53:15 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I40B2ssIgLp4kkuCMAyyVxNC9vM8ce4F8iH8m3d2WIHgJPHy5fU9/NziZtH7mV0PQLwF98Ss0Y5GT9qQIYULWg==", "user"=>{"email"=>"kaushikshamantha@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "kaushikshamantha@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-01-09 13:23:15 UTC], ["last_sign_in_at", 2017-01-09 10:34:15 UTC], ["sign_in_count", 22], ["updated_at", 2017-01-09 13:23:15 UTC], ["id", 1]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 191ms (ActiveRecord: 26.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:53:15 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-01-09 18:53:19 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Bk6dLYi+32OzMPlI6+sUFd5+0Z0+XIDSp+j3ccpufhTaIY9V2jyPTqMBegy7Ym3O+wxfkjybHMtNahBIoSn29g=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:53:19 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 50ms (Views: 48.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:53:20 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered users/sessions/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 64ms (Views: 61.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "categories" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeatherCategory Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "weather_categories" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWeatherDatum Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "weather_data" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1 OFFSET $2[0m  [["LIMIT", 2], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 2], ["OFFSET", 0]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "weather_categories"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "weather_categories"[0m
+  [1m[36mWeatherCategory Load (0.2ms)[0m  [1m[34mSELECT  "weather_categories".* FROM "weather_categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 13], ["OFFSET", 0]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "weather_data"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "weather_data"[0m
+  [1m[36mWeatherDatum Load (0.3ms)[0m  [1m[34mSELECT  "weather_data".* FROM "weather_data" LIMIT $1 OFFSET $2[0m  [["LIMIT", 4], ["OFFSET", 0]]
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:59:07 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 267ms (Views: 255.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:59:11 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered users/sessions/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:59:18 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rNHe7KB5c4CYM78pMXXLgoZOsKU3OcZMaSE7yIZUwVnjquE8vEohAF4f3u+jWAWYM+Fx6IslORH7nNH9OzgkvA==", "user"=>{"email"=>"admin@mail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@mail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-01-09 13:29:18 UTC], ["last_sign_in_at", 2017-01-09 13:22:55 UTC], ["sign_in_count", 18], ["updated_at", 2017-01-09 13:29:18 UTC], ["id", 2]]
+  [1m[35m (118.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 280ms (ActiveRecord: 121.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:59:18 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 37ms (Views: 35.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-01-09 18:59:20 +0530
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 137ms (Views: 66.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:59:21 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (0.6ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 55ms (Views: 40.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2017-01-09 18:59:22 +0530
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 49ms (Views: 36.1ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:59:23 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (2.3ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 95ms (Views: 87.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-01-09 18:59:24 +0530
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-01-09 18:59:25 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rhTT/FShy9arYtjcu+r6PRjpmCP1vNH5mfhPNEaonyecmCjWvV43L3uPvjCavp7LQfI/cM5a6AT22qZzWt4R1A=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:59:25 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:59:26 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered users/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:59:32 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UaQdPrKz65jQsOunNueMXkMBe+obXEBdnlFv3wNGk+mnURGR9O2kywOSI0Cod7XjA39hSi1FqPnkI+xnasiPuA==", "user"=>{"email"=>"admin@mail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "admin@mail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", 2017-01-09 13:29:32 UTC], ["last_sign_in_at", 2017-01-09 13:29:18 UTC], ["sign_in_count", 19], ["updated_at", 2017-01-09 13:29:32 UTC], ["id", 2]]
+  [1m[35m (165.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 342ms (ActiveRecord: 166.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:59:32 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-01-09 18:59:35 +0530
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering admin/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered admin/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 50ms (Views: 45.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/weather" for 127.0.0.1 at 2017-01-09 18:59:36 +0530
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (0.6ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 112ms (Views: 108.1ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-01-09 18:59:39 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wxZ1c4tTDPji/u8aug9YTgcnMY36IAZzqtLBT76Sb5M6rYK8OnF0dvAaI6AvZqQzg87wKI2ZiZIG8FXx+v7sEA=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-09 18:59:39 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-01-09 18:59:40 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered users/sessions/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.0ms)
+
+

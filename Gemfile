@@ -46,6 +46,8 @@ gem 'rack-cors', :require => 'rack/cors'
 #   gem 'rails-assets-tether', '>= 1.3.3'
 # end
 
+gem 'seed_dump'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
