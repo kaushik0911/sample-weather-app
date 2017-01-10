@@ -29,9 +29,9 @@ module Api
           report_row = WeatherDatum.find_by(city_id: row['id'])
           # update the data name, description, specific unit value get
           # from frontend
-          report_row.update({ city_name: row['name'], \
-            description: row['description'], \
-            unit_type['unit'] => row['temperature'] })
+          report_row.update(city_name: row['name'], \
+                            description: row['description'], \
+                            unit_type['unit'] => row['temperature'])
         end
         respond_with
       end

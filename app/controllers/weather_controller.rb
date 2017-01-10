@@ -58,6 +58,6 @@ class WeatherController < ApplicationController
   # calling update method with valid data
   def weather_params
     params.require(:weather_datum).permit(:city_id, \
-      :city_name, category_ids: [])
+                                          :city_name, category_ids: [])
   end
 end
