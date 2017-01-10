@@ -43,6 +43,10 @@ class WeatherController < ApplicationController
       flash[:notice] = @weather.city_name.concat(' weather data
         successfully deleted')
       redirect_to action: 'index'
+    else
+      flash[:notice] = @category.category_name.concat('
+        category unable deleted')
+      redirect_to action: 'index'
     end
   end
 

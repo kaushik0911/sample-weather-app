@@ -32,6 +32,10 @@ class CategoriesController < ApplicationController
       flash[:notice] = @category.category_name.concat('
         category successfully deleted')
       redirect_to action: 'index'
+    else
+      flash[:notice] = @category.category_name.concat('
+        category unable deleted')
+      redirect_to action: 'index'
     end
   end
 

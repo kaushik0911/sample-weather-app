@@ -38028,3 +38028,30 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 39ms (Views: 36.4ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/weather" for 127.0.0.1 at 2017-01-10 15:04:37 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (28.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WeatherController#index as HTML
+  [1m[36mUser Load (65.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering weather/index.html.erb within layouts/application
+  [1m[36mWeatherDatum Load (10.9ms)[0m  [1m[34mSELECT "weather_data".* FROM "weather_data"[0m
+  Rendered weather/index.html.erb within layouts/application (45.5ms)
+Completed 200 OK in 868ms (Views: 590.9ms | ActiveRecord: 155.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-01-10 15:04:41 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Noco0u6CHuCQ/l+nUBIwspNk4BMrk9e8wvHZVt97UD5SL+vKg+GIAY125qzrFx+6pigylJ/9/TGWu7hLtJRb6Q=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 93ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-01-10 15:04:41 +0530
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 45ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
