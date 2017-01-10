@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-	# check logged user is an admin
+  # check logged user is an admin
   before_action :check_admin
   # CRUD operations for cateogires
 
@@ -15,34 +15,34 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def show
-  end
-
   def create
     @category = Category.new(category_parms)
     if @category.save
-      flash[:notice] = (@category.category_name).concat(" category successfully created")
-      redirect_to :action => 'index'
+      flash[:notice] = @category.category_name.concat('
+        category successfully created')
+      redirect_to action: 'index'
     else
-      render :action => 'new'
+      render action: 'new'
     end
   end
 
   def destroy
     @category = Category.find(params[:id])
     if @category.destroy
-      flash[:notice] = (@category.category_name).concat(" category successfully deleted")
-      redirect_to :action => 'index'
+      flash[:notice] = @category.category_name.concat('
+        category successfully deleted')
+      redirect_to action: 'index'
     end
   end
 
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_parms)
-      flash[:notice] = (@category.category_name).concat(" category successfully updated")
-      redirect_to :action => 'index'
+      flash[:notice] = @category.category_name.concat('
+        category successfully updated')
+      redirect_to action: 'index'
     else
-      render :action => 'edit'
+      render action: 'edit'
     end
   end
 

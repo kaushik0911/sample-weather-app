@@ -1,3 +1,4 @@
+# models/weather_datum.rb
 class WeatherDatum < ApplicationRecord
   has_many :weather_categories
   has_many :categories, through: :weather_categories

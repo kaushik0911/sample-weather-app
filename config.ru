@@ -23,5 +23,4 @@ require_relative 'config/environment'
 #   end
 # end
 
-
 run Rails.application

@@ -36,16 +36,16 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # custom gem(s)
-gem 'devise'
 gem 'cancancan'
-gem 'rack-cors', :require => 'rack/cors'
+gem 'devise'
+gem 'rack-cors', require: 'rack/cors'
 
 # gem 'sprockets-rails'
 # gem 'bootstrap'
 # source 'https://rails-assets.org' do
 #   gem 'rails-assets-tether', '>= 1.3.3'
 # end
-
+gem 'rubocop', require: false
 gem 'seed_dump'
 
 group :development, :test do
