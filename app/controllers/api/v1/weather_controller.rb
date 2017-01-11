@@ -33,7 +33,7 @@ module Api
                             description: row['description'], \
                             unit_type['unit'] => row['temperature'])
         end
-        respond_with
+        render json: { status: 'weather data successfully updated' }
       end
     end
   end

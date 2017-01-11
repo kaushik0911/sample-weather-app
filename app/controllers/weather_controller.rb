@@ -22,8 +22,7 @@ class WeatherController < ApplicationController
         successfully created')
       redirect_to action: 'index'
     else
-      flash[:notice] = @weather.errors.messages[:categories][0]
-      render action: 'new'
+      flash[:notice] = "can't be blank"
     end
   end
 
@@ -34,7 +33,7 @@ class WeatherController < ApplicationController
         successfully updated')
       redirect_to action: 'index'
     else
-      flash[:notice] = @weather.errors.messages[:categories][0]
+      flash[:notice] = "can't be blank"
       render action: 'edit'
     end
   end
