@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def check_admin
     redirect_to user_root_path unless current_user[:role] == 'admin'
   end
+
+  def flash_remove
+    flash[:notice] = nil
+  end
 end
