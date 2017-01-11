@@ -4,4 +4,6 @@ class WeatherDatum < ApplicationRecord
   has_many :categories, through: :weather_categories
 
   accepts_nested_attributes_for :categories
+
+  validates :city_name, :city_id, :categories, presence: true
 end
