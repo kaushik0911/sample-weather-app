@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    # index page
+    # index page checking
   end
 end
