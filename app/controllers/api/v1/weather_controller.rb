@@ -13,7 +13,11 @@ module Api
       def show
         # get all weather data belongs to category id, params[:id]
         weather = Category.find(params[:id]).weather_data
-        respond_with weather
+        unless weather.blank?
+          respond_with weather
+        else
+          render json: [status: 'empty city list']
+        end
       end
 
       def update
