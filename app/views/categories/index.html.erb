@@ -3,9 +3,10 @@
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   </li>
 <% end %>
+<%= link_to "Users", admin_root_path %>
+<br>
 <br>
 <%= link_to "Weather", weather_index_path %>
-<br>
 <h3>Category list</h3>
 <%= link_to "create new category", new_category_path %>
 <br>
@@ -14,7 +15,34 @@
     <li>
    	  <%= c.category_name %>
     </li>
-    <%= link_to "edit category", edit_category_path(c.id) %>
-    <%= link_to "remove category", category_path(c.id) , :method => :delete %>
+    <%= link_to "edit category", edit_category_path(c.id) %> /
+    <%= link_to "remove category", category_path(c.id) , method: :delete %>
+    <br>
+    <% if c.weather_data.present? %>
+      <table>
+        <thead>
+          <th>city id</th>
+          <th>city name</th>
+          <th>description</th>
+          <th>fahrenheit (F)</th>
+          <th>celsius (C)</th>
+          <th>kelvin (K)</th>
+        </thead>
+        <tbody>
+          <% c.weather_data.each do |w| %>
+            <tr>
+              <td><%= w.city_id %></td>
+              <td><%= w.city_name %></td>
+              <td><%= w.description %></td>
+              <td><%= w.imperial %></td>
+              <td><%= w.metric %></td>
+              <td><%= w.kelvin %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      - no weather data -
+    <% end %>
   <% end %>
 </ol>
