@@ -1,3 +1,4 @@
 <%= f.label :category_name %><br>
 <%= f.text_field :category_name %><br>
+<%= f.collection_check_boxes :weather_datum_ids, WeatherDatum.all, :id, :city_name %><br>
 <%= f.submit "Submit" %>

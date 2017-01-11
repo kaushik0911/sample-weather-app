@@ -4,8 +4,6 @@
   </li>
 <% end %>
 <br>
-<%= link_to "Users", admin_root_path %>
-<br>
 <%= link_to "Categories", categories_path %>
 <br>
 <h3>Weather Data</h3>
@@ -29,9 +27,7 @@
         <td><%= w.imperial %></td>
         <td><%= w.metric %></td>
         <td><%= w.kelvin %></td>
-        <% if can? :edit, Weather %>
-          <td><%= link_to 'update', edit_weather_path(w.id) %></td>
-        <% end %>        
+        <td><%= link_to 'update', edit_weather_path(w.id) %></td>
         <td><%= link_to 'delete', weather_path(w.id), method: :delete %></td>
       </tr>      
     <% end %>

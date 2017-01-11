@@ -29,7 +29,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    if @category.destroy and @category.weather_data.destroy
+    if @category.destroy && @category.weather_data.destroy
       flash[:notice] = @category.category_name.concat('
         category successfully deleted')
       redirect_to action: 'index'
@@ -55,6 +55,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_parms
-    params.require(:category).permit(:category_name)
+    params.require(:category).permit(:category_name, weather_datum_ids: [])
   end
 end
