@@ -22,7 +22,8 @@ class WeatherController < ApplicationController
         successfully created')
       redirect_to action: 'index'
     else
-      flash[:notice] = "can't be blank"
+      flash[:notice] =  @weather.errors.messages[:city_name][0]
+      render action: 'new'
     end
   end
 
@@ -33,7 +34,7 @@ class WeatherController < ApplicationController
         successfully updated')
       redirect_to action: 'index'
     else
-      flash[:notice] = "can't be blank"
+      flash[:notice] =  @weather.errors.messages[:city_id][0] and @weather.errors.messages[:city_name][0]
       render action: 'edit'
     end
   end

@@ -3,20 +3,20 @@
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   </li>
 <% end %>
-<%= link_to "Users", admin_root_path %>
+<%= link_to 'Users', admin_root_path %>
 <br>
 <br>
-<%= link_to "Weather", weather_index_path %>
+<%= link_to 'Weather', weather_index_path %>
 <h3>Category list</h3>
-<%= link_to "create new category", new_category_path %>
+<%= link_to 'create new category', new_category_path %>
 <br>
 <ol>
   <% @categoires.each do |c| %>
     <li>
    	  <%= c.category_name %>
     </li>
-    <%= link_to "edit category", edit_category_path(c.id) %> /
-    <%= link_to "remove category", category_path(c.id) , method: :delete %>
+    <%= link_to 'edit category', edit_category_path(c.id) %> /
+    <%= link_to 'remove category', category_path(c.id) , method: :delete, data: { confirm: 'are you sure?.. this will remove category and weather data it belongs..' } %>
     <br>
     <% if c.weather_data.present? %>
       <table>
