@@ -1,3 +1,8 @@
+<% if @category.errors.any? %>
+  <% @category.errors.messages.each do |error,  value| %>
+    <%= value.first %><br>
+  <% end %>
+<% end %>
 <h2>New Category Data</h2>
 <%= form_for @category, url: { action: 'create'} do |f| %>
   <%= render partial: 'form', locals: { f: f} %>

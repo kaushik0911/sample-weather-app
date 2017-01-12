@@ -1,3 +1,8 @@
+<% unless @category.valid? %>
+  <% @category.errors.messages.each do |error,  value| %>
+    <%= value.first %><br>
+  <% end %>
+<% end %>
 <h2>Update Category</h2>
 <%= form_for @category, url: {action: 'update', id: @category.id } do |f| %>
 	<%= render partial: 'form', locals: { f: f} %>

@@ -1,6 +1,6 @@
 class WeatherController < ApplicationController
   # check logged user is an admin
-  before_action :check_admin, :flash_remove
+  before_action :check_admin
   # CRUD operations for weather
 
   def index
@@ -22,7 +22,6 @@ class WeatherController < ApplicationController
         successfully created')
       redirect_to action: 'index'
     else
-      flash[:notice] =  @weather.errors.messages[:city_name][0]
       render action: 'new'
     end
   end
@@ -34,7 +33,6 @@ class WeatherController < ApplicationController
         successfully updated')
       redirect_to action: 'index'
     else
-      flash[:notice] =  @weather.errors.messages[:city_id][0] and @weather.errors.messages[:city_name][0]
       render action: 'edit'
     end
   end

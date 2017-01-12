@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   # check logged user is an admin
-  before_action :check_admin, :flash_remove
+  before_action :check_admin
   # CRUD operations for cateogires
 
   def index
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
         category successfully created')
       redirect_to action: 'index'
     else
-      flash[:notice] = @category.errors.messages[:category_name][0]
+      # flash[:notice] = @category.errors.messages[:category_name][0]
       render action: 'new'
     end
   end
@@ -47,7 +47,7 @@ class CategoriesController < ApplicationController
         category successfully updated')
       redirect_to action: 'index'
     else
-      flash[:notice] = @category.errors.messages[:category_name][0]
+      # flash[:notice] = @category.errors.messages[:category_name][0]
       render action: 'edit'
     end
   end

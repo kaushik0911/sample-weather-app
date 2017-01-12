@@ -1,3 +1,9 @@
+<% if @weather.errors.any? %>
+  <% @weather.errors.messages.each do |error,  value| %>
+    <%= value.first %><br>
+  <% end %>
+<% end %>
+
 <h2>New Weather Data</h2>
 <%= form_for @weather, url: { action: 'create'} do |f| %>
   <%= render partial: 'form', locals: { f: f} %>

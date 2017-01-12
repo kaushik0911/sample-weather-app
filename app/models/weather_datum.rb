@@ -5,6 +5,6 @@ class WeatherDatum < ApplicationRecord
 
   accepts_nested_attributes_for :categories
 
-  validates :city_name, presence: true
-  validates :city_id, presence: true
+  validates :city_name, presence: { :message => "city name cannot be blank" }
+  validates :city_id, presence: { :message => "city id cannot be blank" }
 end
